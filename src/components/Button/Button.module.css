@@ -1,0 +1,58 @@
+.buttonWrapper{
+    border:2px solid white;
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4vh;
+    border-radius: 8px;
+}
+@keyframes shining-star {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply the shining effect to the button when hovered */
+  .button {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(202, 31, 224, 0.648) 75%);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+    z-index: -1;
+  }
+  
+  .button:hover::before {
+    transform: scale(1);
+    opacity: 1;
+    animation: shining-star 1s infinite;
+  }
